@@ -1,0 +1,86 @@
+//@import "~antd/lib/style/themes/default.less";
+@header-height: 64px;
+@menu-collapsed-width: 80px;
+
+.layout {
+  .logo {
+    height: @header-height;
+    line-height: @header-height;
+    position: relative;
+    padding-left: (@menu-collapsed-width - 32px) / 2;
+    transition: all .3s;
+    background: #002140;
+    overflow: hidden;
+    cursor: pointer;
+    display: block;
+
+    img {
+      display: inline-block;
+      vertical-align: middle;
+      height: 32px;
+    }
+  }
+
+  .subSider {
+    border-right: 1px solid #eeeeee;
+
+    &_title {
+      height: @header-height;
+      line-height: @header-height;
+      padding-left: (@menu-collapsed-width - 32px) / 2;
+      transition: all .3s;
+      overflow: hidden;
+      border-bottom: 1px solid #eeeeee;
+      font-size: 16px;
+      margin: 0;
+      font-family: 'Myriad Pro', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+      font-weight: 500;
+      color: #666666;
+    }
+  }
+
+  .header {
+    background: #ffffff;
+    padding: 0;
+    box-shadow: 4px 4px 40px 0 rgba(0, 0, 0, 0.05);
+    border-bottom: 1px solid #eeeeee;
+
+    .detail {
+      float: right;
+      height: 100%;
+      padding-right: 12px;
+
+      .dropdown {
+        cursor: pointer;
+        padding: 0 12px;
+        display: inline-block;
+        transition: all 0.3s;
+        height: 100%;
+        > i {
+          font-size: 16px;
+          vertical-align: middle;
+          //color: rgb(230, 247, 255);
+        }
+        &:hover,
+        &:global(.ant-popover-open) {
+          background: rgb(230, 247, 255);
+        }
+
+        > span {
+          margin: 0 12px;
+          display: inline;
+          color: rgba(0, 0, 0, 0.65);
+        }
+      }
+    }
+  }
+
+  .breadcrumb {
+    height: 64px;
+    line-height: 64px;
+    padding: 0 24px 24px;
+    background: #ffffff;
+    margin-bottom: 24px;
+  }
+}
+

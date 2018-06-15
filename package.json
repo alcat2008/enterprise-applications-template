@@ -1,0 +1,48 @@
+{
+  "name": "enterprise-applications-template",
+  "version": "1.0.0",
+  "description": "基于 react + redux + react-router + antd 的最佳实践，服务于企业级中后台项目的模板，特别适用于多模块的场景",
+  "repository": "https://github.com/alcat2008/enterprise-applications-template.git",
+  "author": "戈洋洋 <ge_yangyang@126.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "athena start",
+    "test": "athena test --env=jsdom",
+    "lint": "athena lint src",
+    "lint-fix": "athena lint-fix src",
+    "build": "athena build",
+    "build:test": "ATHENA_ENV_BUILD_ENV=test athena build",
+    "analyze": "ATHENA_ENV_BUILD_ENV=test athena build --report",
+    "validate": "npm ls"
+  },
+  "dependencies": {
+    "@dx-groups/arthur": "^1.0.7",
+    "@dx-groups/utils": "^1.0.0",
+    "antd": "^3.6.2",
+    "axios": "^0.18.0",
+    "bundle-loader": "^0.5.6",
+    "moment": "2.19.3",
+    "react": "16.2.0",
+    "react-dom": "16.2.0",
+    "react-draft-wysiwyg": "^1.12.11",
+    "react-hot-loader": "^4.3.0",
+    "react-redux": "5.0.5",
+    "react-router": "4.2.0",
+    "react-router-dom": "4.2.0",
+    "react-router-redux": "5.0.0-alpha.9",
+    "redux": "^3.7.2",
+    "redux-actions": "^2.3.2",
+    "redux-logger": "^3.0.6",
+    "redux-promise": "^0.5.3",
+    "redux-thunk": "^2.2.0"
+  },
+  "devDependencies": {
+    "@dx-groups/athena": "^2.0.9",
+    "babel-plugin-import": "^1.8.0",
+    "eslint-plugin-import": "^2.12.0",
+    "eslint-plugin-react": "^7.9.1"
+  },
+  "pre-commit": [
+    "lint"
+  ]
+}
