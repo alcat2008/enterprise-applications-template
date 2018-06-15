@@ -1,41 +1,52 @@
 //@import "~antd/lib/style/themes/default.less";
 @header-height: 64px;
+@breadcrumb-height: 56px;
 @menu-collapsed-width: 80px;
 
 .layout {
-  .logo {
-    height: @header-height;
-    line-height: @header-height;
-    position: relative;
-    padding-left: (@menu-collapsed-width - 32px) / 2;
-    transition: all .3s;
-    background: #002140;
-    overflow: hidden;
-    cursor: pointer;
-    display: block;
+  .sider {
+    display: inherit;
 
-    img {
-      display: inline-block;
-      vertical-align: middle;
-      height: 32px;
-    }
-  }
-
-  .subSider {
-    border-right: 1px solid #eeeeee;
-
-    &_title {
+    .logo {
       height: @header-height;
       line-height: @header-height;
+      position: relative;
       padding-left: (@menu-collapsed-width - 32px) / 2;
       transition: all .3s;
+      background: #002140;
       overflow: hidden;
-      border-bottom: 1px solid #eeeeee;
-      font-size: 16px;
-      margin: 0;
-      font-family: 'Myriad Pro', 'Helvetica Neue', Arial, Helvetica, sans-serif;
-      font-weight: 500;
-      color: #666666;
+      cursor: pointer;
+      display: block;
+
+      img {
+        display: inline-block;
+        vertical-align: middle;
+        height: 32px;
+      }
+    }
+
+    .subSider {
+      border-right: 1px solid #eeeeee;
+
+      &_title {
+        height: @header-height;
+        line-height: @header-height;
+        padding-left: (@menu-collapsed-width - 32px) / 2;
+        transition: all .3s;
+        overflow: hidden;
+        border-bottom: 1px solid #eeeeee;
+        font-size: 16px;
+        margin: 0;
+        font-family: 'Myriad Pro', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+        font-weight: 500;
+        color: #666666;
+      }
+    }
+
+    :global(.ant-menu) {
+      border: none;
+      overflow: auto;
+      height: calc(~"100% - @{header-height}");
     }
   }
 
@@ -76,11 +87,10 @@
   }
 
   .breadcrumb {
-    height: 64px;
-    line-height: 64px;
-    padding: 0 24px 24px;
+    height: @breadcrumb-height;
+    line-height: @breadcrumb-height;
+    padding: 0 24px;
     background: #ffffff;
-    margin-bottom: 24px;
   }
 }
 

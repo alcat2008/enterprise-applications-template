@@ -6,7 +6,7 @@ workbox.clientsClaim()
 
 // 设置缓存名称前缀
 workbox.core.setCacheNameDetails({
-  prefix: 'jccy'
+  prefix: 'enterprise-applications-template'
 })
 
 /*

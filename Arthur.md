@@ -2,9 +2,6 @@
 
 **react** + **redux** + **react-router-dom** + **antd**
 
-[eslint 规则](http://git.dx-groups.com/frontend/jc-industry-admin/blob/starter/.eslintrc.js)
-[stylelint 规则](http://git.dx-groups.com/frontend/jc-industry-admin/blob/starter/.stylelintrc)
-
 ## 日志
 
 项目中重写了 `console.log` 方法，在日志中进行拦截，开启的方法很简单，在浏览器的控制台中输入：

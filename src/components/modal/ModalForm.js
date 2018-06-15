@@ -85,7 +85,7 @@ const showModalForm = (params = {}) => {
         >
           <div>
             <Form
-              className={styles['jc-modal-form']}
+              className={styles['dx-modal-form']}
               onSubmit={this._onSubmit}
               id='modal-form'
             >
@@ -102,7 +102,7 @@ const showModalForm = (params = {}) => {
                   </FormItem>
                 ))
               }
-              <FormItem className={styles['jc-modal-form-footer']}>
+              <FormItem className={styles['dx-modal-form-footer']}>
                 {
                   cancelVisible !== false &&
                   <Button

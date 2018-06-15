@@ -2,19 +2,19 @@ import React, { Component, createElement } from 'react'
 import PropTypes from 'prop-types'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import { Link, Route } from 'react-router-dom'
+import { Route } from 'react-router-dom'
 import { push, goBack } from 'react-router-redux'
 import { Layout, Icon, Spin, Dropdown, Menu } from 'antd'
 
 import Module from 'Global/module'
 import { arr2obj } from 'Utils/array'
-import logo from 'Assets/images/logo.png'
 
 import Ellipsis from 'Components/Ellipsis'
 import Breadcrumb from './Breadcrumb'
+import Sider from './Sider'
 import styles from './index.less'
 
-const { Content, Sider, Header } = Layout
+const { Content, Header } = Layout
 
 class MainLayout extends Component {
   static propTypes = {
@@ -29,7 +29,6 @@ class MainLayout extends Component {
     this.state = {
       collapsed: false,
       routesObject,
-      selectedKeys: ['mams_home']
     }
   }
 
@@ -51,41 +50,11 @@ class MainLayout extends Component {
 
   render() {
     const { children, showSpin, routeActions, userInfo, route } = this.props
-    const { collapsed, routesObject } = this.state
+    const { routesObject } = this.state
 
     return (
       <Layout className={styles.layout}>
-        <Sider
-          trigger={null}
-          collapsed={true}
-        >
-          <Link className={styles.logo} to='/'>
-            <img src={logo} alt='logo' />
-          </Link>
-          <Menu theme='dark' mode='inline' defaultSelectedKeys={['1']}>
-            <Menu.Item key='1'>
-              <Icon type='user' />
-              <span>nav 1</span>
-            </Menu.Item>
-            <Menu.Item key='2'>
-              <Icon type='video-camera' />
-              <span>nav 2</span>
-            </Menu.Item>
-            <Menu.Item key='3'>
-              <Icon type='upload' />
-              <span>nav 3</span>
-            </Menu.Item>
-          </Menu>
-        </Sider>
-        <Sider
-          theme='light'
-          breakpoint='lg'
-          collapsed={collapsed}
-          // onCollapse={collapsed => this.setState({ collapsed })}
-          className={styles.subSider}
-        >
-          <h3 className={styles.subSider_title}>模块名称</h3>
-        </Sider>
+        <Sider />
         <Layout>
           <Header className={styles.header}>
             {/* <Icon type={collapsed ? 'menu-unfold' : 'menu-fold'} /> */}
@@ -94,7 +63,7 @@ class MainLayout extends Component {
                 overlay={
                   (
                     <Menu
-                      selectedKeys={[]}
+                      // selectedKeys={[]}
                       onClick={this._onHeaderMenuClick}
                     >
                       <Menu.Item key='modifyPassword'><Icon type='user' />修改密码</Menu.Item>
