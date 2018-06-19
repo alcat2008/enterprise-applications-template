@@ -6,56 +6,6 @@ import { SHOW_LIST_SPIN } from 'Global/module'
 import { isEmpty } from '@dx-groups/utils/lang'
 import Ellipsis from 'Components/Ellipsis'
 
-// ===========================> Route <=========================== //
-
-function genRoute(path, breadcrumbName, baseComponent, parentPath) {
-  return {
-    path,
-    exact: true,
-    baseComponent,
-    breadcrumbName,
-    parentPath
-  }
-}
-
-const RouteHelper = { genRoute }
-
-// ===========================> Menu <=========================== //
-
-function genMenu(menu, menuUrl, buttons = [], menuIcon = 'team', children = null) {
-  return {
-    menu,
-    menuKey: menuUrl,
-    menuIcon,
-    menuUrl,
-    buttons,
-    children,
-  }
-}
-
-const Buttons = {
-  DEFINE: (key, name, path) => ({ key, name, path }),
-  CHECK: (name = '查看', path) => ({ key: 'check', name, path }),
-  ADD: (name = '新增', path) => ({ key: 'add', name, path }),
-  EDIT: (name = '编辑') => ({ key: 'edit', name }),
-  DELETE: (name = '删除') => ({ key: 'delete', name }),
-  EXPORT: (name = '导出') => ({ key: 'export', name }),
-  PRINT: (name = '打印') => ({ key: 'print', name }),
-  SAVE: (name = '保存') => ({ key: 'save', name }),
-  SUBMIT: (name = '提交') => ({ key: 'submit', name }),
-  CANCEL: (name = '取消') => ({ key: 'cancel', name }),
-  BACK: (name = '返回') => ({ key: 'back', name }),
-}
-
-const CRUDButtons = [
-  Buttons.CHECK(),
-  Buttons.ADD(),
-  Buttons.EDIT(),
-  Buttons.DELETE(),
-]
-
-const MenuHelper = { genMenu, Buttons, CRUDButtons }
-
 // ===========================> Reduck <=========================== //
 
 function genListAction(arg, fetch, url, actionType) {
@@ -201,8 +151,6 @@ function arrayToMap(arr, key) {
 }
 
 export {
-  RouteHelper,
-  MenuHelper,
   ReduckHelper,
   genPlanColumn,
   genLangColumn,

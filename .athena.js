@@ -20,8 +20,8 @@ module.exports = {
   entry: 'src/app/index.js',
   babel: {
     plugins: [
-      // ['import', [{ libraryName: 'antd', style: 'css' }]],
       ['import', { libraryName: 'antd', style: true }],
+      'react-hot-loader/babel'
     ],
   },
   webpack: {
@@ -37,8 +37,27 @@ module.exports = {
         'moment/locale/zh-cn': 'moment.locale',
       },
     },
-    vendor: ['immutable']
+    vendor: ['immutable'],
+    dll: [
+      'antd',
+      'axios',
+      'bundle-loader',
+      'classnames',
+      'immutable',
+      'moment',
+      'react',
+      'react-dom',
+      'react-redux',
+      'react-router',
+      'react-router-dom',
+      'react-router-redux',
+      'redux',
+      'redux-actions',
+      'redux-promise',
+      'redux-thunk'
+    ]
   },
+  serviceWorker: 'src/service-worker.js',
   proxy: {
     "/api": {
       "target": "http://test-***.***.com",
