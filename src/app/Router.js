@@ -12,7 +12,7 @@ import { hot } from 'react-hot-loader'
 import * as urls from 'Global/urls'
 import { storage } from '@dx-groups/utils'
 import { isEmpty } from '@dx-groups/utils/lang'
-import routes from '../global/routes'
+import routes from 'Global/routes'
 import Layout from './pages/layout'
 import Login from './pages/login'
 
