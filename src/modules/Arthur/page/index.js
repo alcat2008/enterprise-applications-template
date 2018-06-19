@@ -17,16 +17,8 @@ class Page extends Component {
 }
 
 const mapStateToProps = (state) => {
-  console.log(state)
   return {
     ...state['arthur.page']
   }
-  // return {
-  //   showListSpin: state.common.showListSpin,
-  //
-  //   list: state.supplyChain.depotStock.checkList,
-  //   filter: state.supplyChain.depotStock.checkFilter,
-  //   page: state.supplyChain.depotStock.checkPage,
-  // }
 }
 export default connect(['common.showListSpin', 'arthur.page'], mapStateToProps)(Page)

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { Layout, Icon, Menu } from 'antd'
+import classNames from 'classnames'
 
 import { isEmpty } from '@dx-groups/utils/lang'
 // import storage from '@dx-groups/utils/storage'
@@ -63,6 +64,13 @@ export default class SiderLayout extends Component {
     })
   }
 
+  _getMenuItemClass = (str) => {
+    const pathName = location.pathname
+    return classNames({
+      'ant-menu-item-selected': pathName.indexOf(str) > -1,
+    })
+  }
+
   _renderMenuItems = (menus, isModule = false) =>
     !isEmpty(menus) && menus.map(menu => {
       if (isModule) {
@@ -74,7 +82,7 @@ export default class SiderLayout extends Component {
         )
       } else if (isEmpty(menu.children)) {
         return (
-          <Item key={menu.url}>
+          <Item key={menu.url} className={this._getMenuItemClass(menu.url)}>
             <Link to={menu.url}>
               { menu.icon && <Icon type={menu.icon} />}
               <span>{menu.name}</span>
