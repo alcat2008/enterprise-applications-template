@@ -58,10 +58,10 @@ module.exports = {
     ]
   },
   serviceWorker: 'src/service-worker.js',
-  proxy: {
-    "/api": {
-      "target": "http://test-***.***.com",
-      "changeOrigin": true
-    }
-  }
+  // proxy: {
+  //   "/api": {
+  //     "target": "http://test-***.***.com",
+  //     "changeOrigin": true
+  //   }
+  // }
 }

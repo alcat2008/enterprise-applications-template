@@ -75,7 +75,7 @@ class MainLayout extends Component {
               >
                 <span className={styles.dropdown}>
                   <Icon type='user' style={{ fontSize: 30 }} />
-                  <Ellipsis length={100} tooltip>{userInfo && userInfo.userName}</Ellipsis>
+                  <Ellipsis length={100} tooltip>{userInfo && userInfo.username}</Ellipsis>
                 </span>
               </Dropdown>
             </div>

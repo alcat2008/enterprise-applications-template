@@ -33,12 +33,12 @@ export default {
       return dispatch =>
         fetchData(dispatch, SHOW_BUTTON_SPIN)(apis.login, arg)
           .then(res => {
+            dispatch(this.showBtnSpin(false))
             if (res.code !== 0) {
               message.error(res.errmsg)
-              dispatch(this.showBtnSpin(false))
             } else {
               storage.set('userInfo', res.data)
-              dispatch(setUserInfo(res.data))
+              dispatch(this.setUserInfo(res.data))
               dispatch(replace(urls.HOME))
               // location.href = urls.HOME
             }
