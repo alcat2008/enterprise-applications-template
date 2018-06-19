@@ -3,7 +3,15 @@ import { connect } from '@dx-groups/arthur'
 import Module from './module'
 import BaseModule from '../module'
 
-class Page extends Component {
+@connect(
+  ['common.showListSpin', 'arthur.page'],
+  state => {
+    return {
+      ...state['arthur.page']
+    }
+  }
+)
+export default class Page extends Component {
   _handleClick = () => {
     this.props.dispatch(Module.actions.getCheckList())
     this.props.dispatch(BaseModule.actions.getFirstList())
@@ -15,10 +23,3 @@ class Page extends Component {
     )
   }
 }
-
-const mapStateToProps = (state) => {
-  return {
-    ...state['arthur.page']
-  }
-}
-export default connect(['common.showListSpin', 'arthur.page'], mapStateToProps)(Page)

@@ -29,19 +29,22 @@ export default {
     showListSpin: createAction(SHOW_LIST_SPIN),
     setUserInfo: createAction(SET_USER_INFO),
 
-    userLogin: arg => dispatch =>
-      fetchData(dispatch, SHOW_BUTTON_SPIN)(apis.login, arg)
-        .then(res => {
-          if (res.code !== 0) {
-            message.error(res.errmsg)
-          } else {
-            storage.set('userInfo', res.data)
-            dispatch(setUserInfo(res.data))
-            dispatch(replace(urls.HOME))
-            // location.href = urls.HOME
-          }
-        }),
-    userLogout: arg => {
+    userLogin (arg) {
+      return dispatch =>
+        fetchData(dispatch, SHOW_BUTTON_SPIN)(apis.login, arg)
+          .then(res => {
+            if (res.code !== 0) {
+              message.error(res.errmsg)
+              dispatch(this.showBtnSpin(false))
+            } else {
+              storage.set('userInfo', res.data)
+              dispatch(setUserInfo(res.data))
+              dispatch(replace(urls.HOME))
+              // location.href = urls.HOME
+            }
+          })
+    },
+    userLogout (arg) {
       return dispatch => {
         storage.clear()
         // dispatch(setUserInfo({}))
