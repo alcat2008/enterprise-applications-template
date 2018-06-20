@@ -58,6 +58,8 @@ export default [
 
 ## 菜单
 
+菜单会默认匹配路由，高亮相关的子项
+
 ```JavaScript
 export default {
   name: 'ARTHUR',

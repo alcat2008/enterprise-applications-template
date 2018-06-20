@@ -1,6 +1,6 @@
 import { message } from 'antd'
-import { createAction } from 'redux-actions'
-import { replace } from 'react-router-redux'
+import { createAction } from '@dx-groups/arthur'
+import { replace } from '@dx-groups/arthur/routerRedux'
 import { storage } from '@dx-groups/utils'
 import fetchData from 'Utils/fetch'
 import apis from './apis'

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from '@dx-groups/arthur'
-import { Link } from 'react-router-dom'
+import { Link } from '@dx-groups/arthur/routerDom'
 import { Checkbox } from 'antd'
 import commonModule from 'Global/module'
 import Login from './Login'

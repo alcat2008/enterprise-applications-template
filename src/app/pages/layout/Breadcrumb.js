@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link } from '@dx-groups/arthur/routerDom'
 import { Icon, Breadcrumb } from 'antd'
 import styles from './index.less'
 

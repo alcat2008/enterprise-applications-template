@@ -1,9 +1,9 @@
 import React, { Component, createElement } from 'react'
 import PropTypes from 'prop-types'
 import { bindActionCreators } from 'redux'
-import { connect } from 'react-redux'
-import { Route } from 'react-router-dom'
-import { push, goBack } from 'react-router-redux'
+import { connect } from '@dx-groups/arthur'
+import { Route } from '@dx-groups/arthur/router'
+import { push, goBack } from '@dx-groups/arthur/routerRedux'
 import { Layout, Icon, Spin, Dropdown, Menu } from 'antd'
 
 import Module from 'Global/module'
@@ -119,8 +119,8 @@ class MainLayout extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    showSpin: state.common.showSpin,
-    userInfo: state.common.userInfo,
+    showSpin: state.showSpin,
+    userInfo: state.userInfo,
   }
 }
 
@@ -133,5 +133,5 @@ const mapDispatchToProps = (dispatch) => ({
   }, dispatch),
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(MainLayout)
+export default connect('common', mapStateToProps, mapDispatchToProps)(MainLayout)
 

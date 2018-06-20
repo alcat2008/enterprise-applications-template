@@ -1,5 +1,5 @@
 import React from 'react'
-import { createAction } from 'redux-actions'
+import { createAction } from '@dx-groups/arthur'
 import { message, Tooltip } from 'antd'
 import moment from 'moment'
 import { SHOW_LIST_SPIN } from 'Global/module'

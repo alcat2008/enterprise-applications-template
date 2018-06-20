@@ -2,12 +2,12 @@
  * Created by yiming on 2017/6/20.
  */
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
+import { Link } from '@dx-groups/arthur/routerDom'
 import { Menu, Icon } from 'antd'
 import * as urls from 'Global/urls'
 import classNames from 'classnames'
 // import storage from 'Utils/storage'
-import { connect } from 'react-redux'
+import { connect } from '@dx-groups/arthur'
 import { isEmpty } from '@dx-groups/utils/lang'
 import menuCodes from 'Global/menuCodes'
 
@@ -91,4 +91,4 @@ const mapDispatchToProps = (dispatch) => ({
   dispatch
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(MamsMenu)
+export default connect(['common', 'router'], mapStateToProps, mapDispatchToProps)(MamsMenu)

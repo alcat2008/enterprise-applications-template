@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
+import { connect } from '@dx-groups/arthur'
 import {
   Route,
   Switch,
   Redirect
-} from 'react-router-dom'
-import { ConnectedRouter } from 'react-router-redux'
+} from '@dx-groups/arthur/routerDom'
+import { ConnectedRouter } from '@dx-groups/arthur/routerRedux'
 import { LocaleProvider } from 'antd'
 import { hot } from 'react-hot-loader'
 
@@ -61,13 +61,6 @@ class Router extends Component {
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    auths: state.common.auths
-  }
-}
-const mapDispatchToProps = dispatch => ({
-  dispatch
-})
+const mapStateToProps = ({ auths }) => ({ auths })
 
-export default hot(module)(connect(mapStateToProps, mapDispatchToProps)(Router))
+export default hot(module)(connect('common', mapStateToProps)(Router))

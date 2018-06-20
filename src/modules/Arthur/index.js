@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Route, Switch, Redirect } from 'react-router-dom'
+import { Route, Switch, Redirect } from '@dx-groups/arthur/routerDom'
 import * as urls from 'Global/urls'
 
 import Page from './page'

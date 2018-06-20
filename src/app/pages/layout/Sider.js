@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
+import { Link } from '@dx-groups/arthur/routerDom'
 import { Layout, Icon, Menu } from 'antd'
 import classNames from 'classnames'
 

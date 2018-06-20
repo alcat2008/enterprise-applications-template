@@ -1,4 +1,4 @@
-import { routerReducer } from 'react-router-redux'
+import { routerReducer } from '@dx-groups/arthur/routerRedux'
 
 const LOCATION_CHANGE = '@@router/LOCATION_CHANGE'
 

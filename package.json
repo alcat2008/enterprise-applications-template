@@ -16,23 +16,13 @@
     "validate": "npm ls"
   },
   "dependencies": {
-    "@dx-groups/arthur": "^1.0.7",
+    "@dx-groups/arthur": "^1.1.1",
     "@dx-groups/utils": "^1.0.0",
     "antd": "^3.6.2",
     "axios": "^0.18.0",
     "bundle-loader": "^0.5.6",
     "moment": "2.19.3",
-    "react": "16.2.0",
-    "react-dom": "16.2.0",
-    "react-hot-loader": "^4.3.0",
-    "react-redux": "5.0.5",
-    "react-router": "4.2.0",
-    "react-router-dom": "4.2.0",
-    "react-router-redux": "5.0.0-alpha.9",
-    "redux": "^3.7.2",
-    "redux-actions": "^2.3.2",
-    "redux-promise": "^0.5.3",
-    "redux-thunk": "^2.2.0"
+    "react-hot-loader": "^4.3.0"
   },
   "devDependencies": {
     "@dx-groups/athena": "^2.1.0",
