@@ -6,7 +6,7 @@ function _makeSimulatedPause(durationMs = 400) {
 module.exports = {
   '/api/user/login': async (req, res) => {
     const { password, username } = req.body
-    await _makeSimulatedPause(5000)
+    await _makeSimulatedPause(300)
     if (password === '888888') {
       return res.json({
         "code": 0,

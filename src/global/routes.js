@@ -3,17 +3,17 @@ import Home from '../app/pages/home/index'
 
 import arthurRoutes from 'Modules/Arthur/routes'
 
-function transformRoutes (routes, _parent = urls.HOME, _baseModule) {
+function transformRoutes (routes, _parent = urls.HOME, _loader) {
   const tmpRoutes = []
   routes && routes.forEach(route => {
-    const { children, parent = _parent, baseModule = _baseModule, ...rest } = route
+    const { children, parent = _parent, loader = _loader, ...rest } = route
     tmpRoutes.push(
       {
         ...rest,
         parent,
-        baseModule,
+        loader,
       },
-      ...transformRoutes(children, rest.path, baseModule)
+      ...transformRoutes(children, rest.path, loader)
     )
   })
   return tmpRoutes

@@ -5,7 +5,7 @@ import * as urls from 'Global/urls'
 import Page from './page'
 import Sub from './page/sub'
 
-class BaseModule extends Component {
+export default class Arthur extends Component {
   render() {
     return (
       <Switch>
@@ -16,4 +16,3 @@ class BaseModule extends Component {
     )
   }
 }
-export default BaseModule

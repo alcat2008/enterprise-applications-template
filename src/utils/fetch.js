@@ -25,15 +25,13 @@ function fetcherCreator(url, userInfo) {
     method: 'post',
     baseURL: url,
     withCredentials: true,
-    headers: {
-      'Access-Control-Allow-Origin': '*',
-      'Content-Type': 'application/json',
-    }
   })
 
   fetcher.interceptors.request.use(function (config) {
     config.headers = {
       ...config.headers,
+      'Access-Control-Allow-Origin': '*',
+      'Content-Type': 'application/json',
       'ticket': getUserTicket()
     }
     if (!config.data) { // 解决不传参时，Content-Type 不生效，服务器返回 415 的问题

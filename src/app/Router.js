@@ -7,6 +7,7 @@ import {
 } from '@dx-groups/arthur/routerDom'
 import { ConnectedRouter } from '@dx-groups/arthur/routerRedux'
 import { LocaleProvider } from 'antd'
+import Loadable from 'react-loadable'
 import { hot } from 'react-hot-loader'
 
 import * as urls from 'Global/urls'
@@ -17,7 +18,6 @@ import Layout from './pages/layout'
 import Login from './pages/login'
 
 import NotFoundPage from './pages/notFoundPage'
-import { bundle } from './bundle'
 import zhCN from 'antd/lib/locale-provider/zh_CN'
 import 'moment/locale/zh-cn'
 
@@ -27,7 +27,17 @@ class Router extends Component {
     if (userInfo) {
       return (
         <Layout routes={routes} route={route}>
-          {route.component || bundle(route.baseModule)}
+          {
+            route.component ||
+              (
+                Loadable({
+                  loader: route.loader,
+                  loading() {
+                    return <div>Loading...</div>
+                  }
+                })
+              )
+          }
         </Layout>
       )
     } else {

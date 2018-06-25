@@ -163,7 +163,7 @@ module.exports = {
     'import/no-dynamic-require': 2,
     'import/no-named-as-default': 2,
     'import/no-unresolved': [2, { // 没有未引用的模块
-      ignore: [ 'bundle-loader', 'Utils', 'Assets', 'Global', 'Components', 'Modules', '\.img$', '\.png$' ]
+      ignore: [ 'Utils', 'Assets', 'Global', 'Components', 'Modules', '\.img$', '\.png$' ]
     }],
   }
 }

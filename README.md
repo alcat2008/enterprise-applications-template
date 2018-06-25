@@ -34,7 +34,7 @@ export default [
   {
     name: 'ARTHUR',
     path: urls.ARTHUR,
-    baseModule: BaseModule,                                            // 懒加载必须提供统一的入口
+    loader: Loader,                                            // 懒加载必须提供统一的入口
     // component: <component>,
     // parent: '',                                                     // 父路由，顶级默认是 HOME，其他默认根据路由层级进行制定
     children: [
