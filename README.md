@@ -4,7 +4,7 @@
 
 ## 开发工具
 
-开发工具采用 [athena](https://github.com/elephant-fe/athena)，是基于 webpack 的应用开发工具，大大提升了开发及运行效率，主要特性如下：
+开发工具采用 [athena](https://github.com/dx-groups/athena)，是基于 webpack 的应用开发工具，大大提升了开发及运行效率，主要特性如下：
 
 - 基于 webpack 4 进行改造，构建速度快
 - 开发时默认分包，启用 dll
@@ -19,7 +19,7 @@
 
 ## redux+
 
-针对多模块场景及 redux 存在的一些问题，参考 dva，形成了好用的 [arthur](https://github.com/elephant-fe/arthur)，力求达到：
+针对多模块场景及 redux 存在的一些问题，参考 dva，形成了好用的 [arthur](https://github.com/dx-groups/arthur)，力求达到：
 
 > 更少的代码，更清晰的结构，更好的性能
 
@@ -29,57 +29,62 @@
 
 ## 路由
 
+路由以模块为单位进行配置，默认在模块根目录的 `routes.js` 中指定
+
 ```JavaScript
 export default [
   {
-    name: 'ARTHUR',
-    path: urls.ARTHUR,
-    loader: Loader,                                            // 懒加载必须提供统一的入口
+    name: 'demo',
+    path: urls.DEMO,
+    loader: () => import('./'),            # 懒加载必须提供统一的入口
     // component: <component>,
-    // parent: '',                                                     // 父路由，顶级默认是 HOME，其他默认根据路由层级进行制定
     children: [
       {
-        name: 'PAGE',
-        path: urls.ARTHUR_PAGE,
-        hideBreadcrumb: true,                                          // 该路由页面中不显示面包屑
-        hideInBreadcrumb: false,                                       // 面包屑中不显示这一层路由信息
-        children: [
-          {
-            name: 'SUB',
-            path: urls.ARTHUR_PAGE_SUB,
-            breadcrumbRender: (route, match) => match.params.id        // 自定义面包屑信息
-          }
-        ]
+        name: 'page',
+        path: urls.DEMO_PAGE,
+      },
+      {
+        name: 'group',
+        path: urls.DEMO_GROUP_REGEXP,
+        // parent: '',                     # 父路由，顶级默认是 HOME，其他默认根据路由层级进行制定
+        // hideBreadcrumb: false,          # 该路由页面是否不显示面包屑
+        hideInBreadcrumb: false,           # 面包屑中是否显示这一层路由信息
+        breadcrumbRender: (route, match) => `group ${match.params.id}`       # 自定义面包屑信息
       }
-    ]
-  }
+    ],
+  },
 ]
 ```
 
 ## 菜单
 
-菜单会默认匹配路由，高亮相关的子项
+菜单同样以模块为单位进行配置，默认在模块根目录的 `menu.js` 中指定。菜单会默认匹配路由，高亮相关的子项
 
 ```JavaScript
 export default {
-  name: 'ARTHUR',
-  icon: 'shop',
-  url: urls.ARTHUR,
+  name: 'demo',
+  icon: 'bulb',
+  url: urls.DEMO,
   children: [
     {
-      name: 'ARTHUR_PAGE',
-      url: urls.ARTHUR_PAGE,
-      children: [
-        {
-          name: `${urls.ARTHUR_PAGE}/12`,
-          url: `${urls.ARTHUR_PAGE}/12`,
-        }
-      ]
+      name: 'DEMO_PAGE',
+      url: urls.DEMO_PAGE,
     },
     {
-      name: `${urls.ARTHUR_PAGE}/34`,
-      url: `${urls.ARTHUR_PAGE}/34`,
+      name: 'DEMO_GROUP',
+      url: urls.DEMO_GROUP,
+      children: [
+        {
+          name: 'DEMO_GROUP/12',
+          url: `${urls.DEMO_GROUP}/12`,
+        },
+        {
+          name: 'DEMO_GROUP/34',
+          url: `${urls.DEMO_GROUP}/34`,
+        },
+      ]
     }
   ]
 }
+
 ```

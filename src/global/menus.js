@@ -1,5 +1,5 @@
-import arthurMenu from 'Modules/Arthur/menu'
+import demoMenu from 'Modules/demo/menu'
 
 export default [
-  arthurMenu,
+  demoMenu,
 ]

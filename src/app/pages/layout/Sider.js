@@ -45,7 +45,6 @@ export default class SiderLayout extends Component {
       moduleSelectedName: currentModule.name,
       moduleMenus: currentModule.children,
       menuOpenKeys: _getSubKeys(currentModule),
-      menuSelectedKeys: [currentMenuUrl],
     }
   }
 
@@ -55,12 +54,6 @@ export default class SiderLayout extends Component {
       moduleSelectedName: menusObject[key].name,
       menuOpenKeys: _getSubKeys(menusObject[key]),
       moduleMenus: menusObject[key].children
-    })
-  }
-
-  _handleMenuClick = ({ item, key, keyPath }) => {
-    this.setState({
-      menuSelectedKeys: [key]
     })
   }
 
@@ -104,7 +97,7 @@ export default class SiderLayout extends Component {
     })
 
   render() {
-    const { collapsed, moduleSelectedKeys, moduleSelectedName, moduleMenus, menuOpenKeys, menuSelectedKeys } = this.state
+    const { collapsed, moduleSelectedKeys, moduleSelectedName, moduleMenus, menuOpenKeys } = this.state
 
     return (
       <div className={styles.sider}>
@@ -138,11 +131,9 @@ export default class SiderLayout extends Component {
               <h3 className={styles.subSider_title}>{moduleSelectedName}</h3>
               <Menu
                 mode='inline'
-                // inlineCollapsed={false}
                 openKeys={menuOpenKeys}
-                selectedKeys={menuSelectedKeys}
+                selectedKeys={[location.pathname]}
                 onOpenChange={menuOpenKeys => this.setState({ menuOpenKeys })}
-                onClick={this._handleMenuClick}
               >
                 {
                   this._renderMenuItems(moduleMenus)

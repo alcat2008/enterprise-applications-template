@@ -10,7 +10,7 @@ import './index.less'
 
 import routerModule from './routerModule'
 import commonModule from 'Global/module'
-import arthurModule from 'Modules/Arthur/module'
+import demoModule from 'Modules/demo/module'
 
 let currentUserInfo = {}
 
@@ -44,7 +44,7 @@ app.init(() => dispatch => {
 app.modules([
   routerModule,
   commonModule,
-  arthurModule,
+  demoModule,
 ])
 
 // 4. Router

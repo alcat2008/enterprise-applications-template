@@ -932,9 +932,9 @@
     redux-thunk "^2.2.0"
     warning "^3.0.0"
 
-"@dx-groups/athena@^2.1.0":
-  version "2.1.0"
-  resolved "https://registry.npmjs.org/@dx-groups/athena/-/athena-2.1.0.tgz#cb41dd09fa36ffc6e3a63dec4f42bba0b455ab2e"
+"@dx-groups/athena@^2.1.2":
+  version "2.1.2"
+  resolved "https://registry.npmjs.org/@dx-groups/athena/-/athena-2.1.2.tgz#7199ff0d8dc085348224258d197b2e1daf0cab9a"
   dependencies:
     "@babel/cli" "^7.0.0-beta.49"
     "@babel/core" "^7.0.0-beta.49"
@@ -1288,8 +1288,8 @@ ansi-to-html@^0.6.3:
     entities "^1.1.1"
 
 antd@^3.6.2:
-  version "3.6.3"
-  resolved "http://registry.npm.taobao.org/antd/download/antd-3.6.3.tgz#29ad00da47b9162a7935672a6c8ba43f45713aff"
+  version "3.6.4"
+  resolved "http://registry.npm.taobao.org/antd/download/antd-3.6.4.tgz#9a664aa2dcf7e027144934373b85395fb30a3373"
   dependencies:
     array-tree-filter "^2.0.0"
     babel-runtime "6.x"
@@ -2453,6 +2453,12 @@ builtin-status-codes@^3.0.0:
   version "3.0.0"
   resolved "http://registry.npm.taobao.org/builtin-status-codes/download/builtin-status-codes-3.0.0.tgz#85982878e21b98e1c66425e03d0174788f569ee8"
 
+bundle-loader@^0.5.6:
+  version "0.5.6"
+  resolved "http://registry.npm.taobao.org/bundle-loader/download/bundle-loader-0.5.6.tgz#6c9042e62f1c89941458805a3a479d10f34c71fd"
+  dependencies:
+    loader-utils "^1.1.0"
+
 bytes@3.0.0:
   version "3.0.0"
   resolved "http://registry.npm.taobao.org/bytes/download/bytes-3.0.0.tgz#d32815404d689699f85a4ea4fa8755dd13a96048"
@@ -3417,8 +3423,8 @@ doctrine@^2.1.0:
     esutils "^2.0.2"
 
 dom-align@^1.7.0:
-  version "1.7.0"
-  resolved "http://registry.npm.taobao.org/dom-align/download/dom-align-1.7.0.tgz#95a8f91a8c6aaaef5908366c1c2c6271461bf2c3"
+  version "1.8.0"
+  resolved "http://registry.npm.taobao.org/dom-align/download/dom-align-1.8.0.tgz#c0e89b5b674c6e836cd248c52c2992135f093654"
 
 dom-closest@^0.2.0:
   version "0.2.0"
@@ -7805,8 +7811,8 @@ raw-body@2.3.3:
     unpipe "1.0.0"
 
 rc-align@^2.4.0:
-  version "2.4.2"
-  resolved "http://registry.npm.taobao.org/rc-align/download/rc-align-2.4.2.tgz#338696c755b443ac10233e8703935b1d6f8ff194"
+  version "2.4.3"
+  resolved "http://registry.npm.taobao.org/rc-align/download/rc-align-2.4.3.tgz#b9b3c2a6d68adae71a8e1d041cd5e3b2a655f99a"
   dependencies:
     babel-runtime "^6.26.0"
     dom-align "^1.7.0"
@@ -7923,8 +7929,8 @@ rc-hammerjs@~0.6.0:
     prop-types "^15.5.9"
 
 rc-input-number@~4.0.0:
-  version "4.0.8"
-  resolved "http://registry.npm.taobao.org/rc-input-number/download/rc-input-number-4.0.8.tgz#6b246a7d7780cd76a9935f9a3407e05829afe2c7"
+  version "4.0.10"
+  resolved "http://registry.npm.taobao.org/rc-input-number/download/rc-input-number-4.0.10.tgz#29e8858e580eda0079ad4135a3d2c6d7eb794a3d"
   dependencies:
     babel-runtime "6.x"
     classnames "^2.2.0"
@@ -7992,8 +7998,8 @@ rc-rate@~2.4.0:
     rc-util "^4.3.0"
 
 rc-select@~8.0.7:
-  version "8.0.13"
-  resolved "http://registry.npm.taobao.org/rc-select/download/rc-select-8.0.13.tgz#8e74f81971063a703cb7f8e4c4d8e43ec1be52a7"
+  version "8.0.14"
+  resolved "http://registry.npm.taobao.org/rc-select/download/rc-select-8.0.14.tgz#ff1763458a15519bea010ea15fecf6f59095b346"
   dependencies:
     babel-runtime "^6.23.0"
     classnames "2.x"
@@ -8967,7 +8973,11 @@ shallowequal@^0.2.2:
   dependencies:
     lodash.keys "^3.1.2"
 
-shallowequal@^1.0.1, shallowequal@^1.0.2:
+shallowequal@^1.0.1:
+  version "1.1.0"
+  resolved "http://registry.npm.taobao.org/shallowequal/download/shallowequal-1.1.0.tgz#188d521de95b9087404fd4dcb68b13df0ae4e7f8"
+
+shallowequal@^1.0.2:
   version "1.0.2"
   resolved "http://registry.npm.taobao.org/shallowequal/download/shallowequal-1.0.2.tgz#1561dbdefb8c01408100319085764da3fcf83f8f"
 

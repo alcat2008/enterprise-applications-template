@@ -1,7 +1,7 @@
 import * as urls from './urls'
 import Home from '../app/pages/home/index'
 
-import arthurRoutes from 'Modules/Arthur/routes'
+import demoRoutes from 'Modules/demo/routes'
 
 function transformRoutes (routes, _parent = urls.HOME, _loader) {
   const tmpRoutes = []
@@ -19,7 +19,7 @@ function transformRoutes (routes, _parent = urls.HOME, _loader) {
   return tmpRoutes
 }
 
-const arthurs = transformRoutes(arthurRoutes)
+const demos = transformRoutes(demoRoutes)
 
 const routes = [
   {
@@ -27,6 +27,6 @@ const routes = [
     path: urls.HOME,
     component: Home,
   },
-  ...arthurs,
+  ...demos,
 ]
 export default routes

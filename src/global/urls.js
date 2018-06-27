@@ -1,8 +1,8 @@
 export const HOME = '/'
-export const DEMO = `${HOME}demo`
 export const LOGIN = `${HOME}login`
 
 // arthur demo
-export const ARTHUR = `${HOME}arthur` // arthur
-export const ARTHUR_PAGE = `${HOME}arthur/page` // arthur / page
-export const ARTHUR_PAGE_SUB = `${HOME}arthur/page/:id` // arthur / page / sub
+export const DEMO = `${HOME}demo`
+export const DEMO_PAGE = `${DEMO}/page`
+export const DEMO_GROUP = `${DEMO}/group`
+export const DEMO_GROUP_REGEXP = `${DEMO}/group/:id`
