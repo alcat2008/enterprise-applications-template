@@ -1,11 +1,11 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
-import { Form, Tabs } from 'antd'
-import classNames from 'classnames'
-import LoginItem from './LoginItem'
-import LoginTab from './LoginTab'
-import LoginSubmit from './LoginSubmit'
-import styles from './index.less'
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { Form, Tabs } from 'antd';
+import classNames from 'classnames';
+import LoginItem from './LoginItem';
+import LoginTab from './LoginTab';
+import LoginSubmit from './LoginSubmit';
+import styles from './index.less';
 
 class Login extends Component {
   static propTypes = {
@@ -33,64 +33,68 @@ class Login extends Component {
     tabs: [],
     active: {},
   };
+
   getChildContext() {
     return {
       tabUtil: {
         addTab: id => {
-          this.setState({
-            tabs: [...this.state.tabs, id],
-          })
+          this.setState(prevState => ({
+            tabs: [...prevState.tabs, id],
+          }));
         },
         removeTab: id => {
-          this.setState({
-            tabs: this.state.tabs.filter(currentId => currentId !== id),
-          })
+          this.setState(prevState => ({
+            tabs: prevState.tabs.filter(currentId => currentId !== id),
+          }));
         },
       },
       form: this.props.form,
       updateActive: activeItem => {
-        const { type, active } = this.state
+        const { type, active } = this.state;
         if (active[type]) {
-          active[type].push(activeItem)
+          active[type].push(activeItem);
         } else {
-          active[type] = [activeItem]
+          active[type] = [activeItem];
         }
         this.setState({
           active,
-        })
+        });
       },
-    }
+    };
   }
+
   onSwitch = type => {
     this.setState({
       type,
-    })
-    this.props.onTabChange(type)
+    });
+    this.props.onTabChange(type);
   };
+
   handleSubmit = e => {
-    e.preventDefault()
-    const { active, type } = this.state
-    const activeFileds = active[type]
+    e.preventDefault();
+    const { active, type } = this.state;
+    const activeFileds = active[type];
     this.props.form.validateFields(activeFileds, { force: true }, (err, values) => {
-      this.props.onSubmit(err, values)
-    })
+      this.props.onSubmit(err, values);
+    });
   };
+
   render() {
-    const { className, children } = this.props
-    const { type, tabs } = this.state
-    const TabChildren = []
-    const otherChildren = []
+    const { className, children } = this.props;
+    const { type, tabs } = this.state;
+    const TabChildren = [];
+    const otherChildren = [];
     React.Children.forEach(children, item => {
       if (!item) {
-        return
+        return;
       }
       // eslint-disable-next-line
       if (item.type.__ANT_PRO_LOGIN_TAB) {
-        TabChildren.push(item)
+        TabChildren.push(item);
       } else {
-        otherChildren.push(item)
+        otherChildren.push(item);
       }
-    })
+    });
     return (
       <div className={classNames(className, styles.login)}>
         <Form onSubmit={this.handleSubmit}>
@@ -111,14 +115,14 @@ class Login extends Component {
           )}
         </Form>
       </div>
-    )
+    );
   }
 }
 
-Login.Tab = LoginTab
-Login.Submit = LoginSubmit
+Login.Tab = LoginTab;
+Login.Submit = LoginSubmit;
 Object.keys(LoginItem).forEach(item => {
-  Login[item] = LoginItem[item]
-})
+  Login[item] = LoginItem[item];
+});
 
-export default Form.create()(Login)
+export default Form.create()(Login);

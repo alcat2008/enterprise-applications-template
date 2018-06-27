@@ -1,6 +1,5 @@
-
-import pageModule from './page/module'
-import groupModule from './group/module'
+import pageModule from './page/module';
+import groupModule from './group/module';
 
 export default {
   namespace: 'demo',
@@ -11,8 +10,5 @@ export default {
 
   reducers: {},
 
-  children: [
-    pageModule,
-    groupModule,
-  ],
-}
+  children: [pageModule, groupModule],
+};

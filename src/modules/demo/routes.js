@@ -1,6 +1,6 @@
 // router configuration for module
 
-import * as urls from 'Global/urls'
+import * as urls from 'Global/urls';
 
 export default [
   {
@@ -19,8 +19,8 @@ export default [
         // parent: '',
         // hideBreadcrumb: false,
         hideInBreadcrumb: false,
-        breadcrumbRender: (route, match) => `group ${match.params.id}`
-      }
+        breadcrumbRender: (route, match) => `group ${match.params.id}`,
+      },
     ],
   },
-]
+];

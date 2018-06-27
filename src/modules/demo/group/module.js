@@ -1,4 +1,3 @@
-
 export default {
   namespace: 'group',
 
@@ -9,4 +8,4 @@ export default {
   reducers: {},
 
   children: [],
-}
+};

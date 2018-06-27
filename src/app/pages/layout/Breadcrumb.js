@@ -1,43 +1,44 @@
-import React from 'react'
-import { Link } from '@dx-groups/arthur/routerDom'
-import { Icon, Breadcrumb } from 'antd'
-import styles from './index.less'
+import React from 'react';
+import { Link } from '@dx-groups/arthur/routerDom';
+import { Icon, Breadcrumb } from 'antd';
+import styles from './index.less';
 
 export default function BreadcrumbLayout({ route, routesObject, match }) {
-  if (route.hideBreadcrumb) return null
+  if (route.hideBreadcrumb) return null;
 
-  const finalRoutes = [route]
+  const finalRoutes = [route];
 
-  let tmpRoute = route
-  let tmpParent = tmpRoute.parent
+  let tmpRoute = route;
+  let tmpParent = tmpRoute.parent;
   while (tmpParent) {
-    tmpRoute = routesObject[tmpParent]
-    tmpParent = tmpRoute.parent
-    finalRoutes.push(tmpRoute)
+    tmpRoute = routesObject[tmpParent];
+    tmpParent = tmpRoute.parent;
+    finalRoutes.push(tmpRoute);
   }
 
   return (
     <Breadcrumb
       className={styles.breadcrumb}
-      itemRender={(route, params, routes) => {
-        if (route.breadcrumbRender) {
-          return route.breadcrumbRender(route, match)
+      itemRender={(item, params, routes) => {
+        if (item.breadcrumbRender) {
+          return item.breadcrumbRender(item, match);
         }
 
-        const index = routes.indexOf(route)
+        const index = routes.indexOf(item);
         if (index === 0) {
           return (
-            <Link to={route.path}>
-              <Icon type='home' style={{ fontSize: 14 }} /><span style={{ marginLeft: '6px' }}>{route.name}</span>
+            <Link to={item.path}>
+              <Icon type="home" style={{ fontSize: 14 }} />
+              <span style={{ marginLeft: '6px' }}>{item.name}</span>
             </Link>
-          )
-        } else if (index === routes.length - 1) {
-          return <span>{route.name}</span>
-        } else {
-          return <Link to={route.path}>{route.name}</Link>
+          );
         }
+        if (index === routes.length - 1) {
+          return <span>{item.name}</span>;
+        }
+        return <Link to={item.path}>{item.name}</Link>;
       }}
       routes={finalRoutes.filter(({ hideInBreadcrumb }) => !hideInBreadcrumb).reverse()}
     />
-  )
+  );
 }

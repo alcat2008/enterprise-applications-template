@@ -1,82 +1,93 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
-import { Modal, Form, Input, Button, message } from 'antd'
-import styles from './ModalForm.less'
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { Modal, Form, Input, Button, message } from 'antd';
+import styles from './ModalForm.less';
 
 const defaultFormItemLayout = {
   labelCol: { span: 6 },
   wrapperCol: { span: 16 },
-}
+};
 
-const FormItem = Form.Item
+const FormItem = Form.Item;
 
 const showModalForm = (params = {}) => {
-  const maskDiv = document.createElement('div')
-  maskDiv.setAttribute('class', 'mask-div')
-  document.body.appendChild(maskDiv)
+  const maskDiv = document.createElement('div');
+  maskDiv.setAttribute('class', 'mask-div');
+  document.body.appendChild(maskDiv);
 
   const _close = () => {
-    const unmountResult = ReactDOM.unmountComponentAtNode(maskDiv)
+    const unmountResult = ReactDOM.unmountComponentAtNode(maskDiv);
     if (unmountResult) {
-      maskDiv.parentNode.removeChild(maskDiv)
+      maskDiv.parentNode.removeChild(maskDiv);
     }
-  }
+  };
 
-  const { title, onOk, okText, okVisible, cancelText, cancelVisible, fields, validator, formItemLayout } = params
+  const {
+    title,
+    onOk,
+    okText,
+    okVisible,
+    cancelText,
+    cancelVisible,
+    fields,
+    validator,
+    formItemLayout,
+  } = params;
 
   class ModalForm extends React.Component {
     constructor(props) {
-      super(props)
+      super(props);
       this.state = {
-        loading: false
-      }
+        loading: false,
+      };
     }
 
     _onSubmit = e => {
-      e.preventDefault()
-      this.props.form.validateFields((err, values) => {
+      e.preventDefault();
+      const { form } = this.props;
+      form.validateFields((err, values) => {
         if (!err) {
-          let isFinish = true
+          let isFinish = true;
           if (validator) {
-            const validateResult = validator(values)
+            const validateResult = validator(values);
             if (validateResult.error) {
-              message.error(validateResult.payload, 3)
-              isFinish = false
+              message.error(validateResult.payload, 3);
+              isFinish = false;
             }
           }
 
           if (isFinish) {
             this.setState({
-              loading: true
-            })
-            const res = onOk && onOk(values)
+              loading: true,
+            });
+            const res = onOk && onOk(values);
             if (res instanceof Promise) {
-              res.then((res) => {
-                if (res) {
-                  _close()
+              res.then(retv => {
+                if (retv) {
+                  _close();
                 }
                 this.setState({
-                  loading: false
-                })
-              })
+                  loading: false,
+                });
+              });
             } else {
-              _close()
+              _close();
               this.setState({
-                loading: false
-              })
+                loading: false,
+              });
             }
           }
         }
-      })
-    }
+      });
+    };
 
     render() {
-      const { form } = this.props
-      const { loading } = this.state
-      const { getFieldDecorator } = form
+      const { form } = this.props;
+      const { loading } = this.state;
+      const { getFieldDecorator } = form;
       return (
         <Modal
-          visible={true}
+          visible
           onCancel={_close}
           c
           footer={null}
@@ -84,56 +95,39 @@ const showModalForm = (params = {}) => {
           style={{ minWidth: '580px' }}
         >
           <div>
-            <Form
-              className={styles['dx-modal-form']}
-              onSubmit={this._onSubmit}
-              id='modal-form'
-            >
-              {
-                fields.map(field => (
-                  <FormItem
-                    key={field.id}
-                    {...(formItemLayout || defaultFormItemLayout)}
-                    {...field.props}
-                  >
-                    {getFieldDecorator(field.id, field.options)(
-                      field.element || <Input placeholder={field.placeHolder} />
-                    )}
-                  </FormItem>
-                ))
-              }
+            <Form className={styles['dx-modal-form']} onSubmit={this._onSubmit} id="modal-form">
+              {fields.map(field => (
+                <FormItem
+                  key={field.id}
+                  {...formItemLayout || defaultFormItemLayout}
+                  {...field.props}
+                >
+                  {getFieldDecorator(field.id, field.options)(
+                    field.element || <Input placeholder={field.placeHolder} />
+                  )}
+                </FormItem>
+              ))}
               <FormItem className={styles['dx-modal-form-footer']}>
-                {
-                  cancelVisible !== false &&
-                  <Button
-                    key='cancel'
-                    onClick={_close}
-                  >{cancelText || '取消'}
+                {cancelVisible !== false && (
+                  <Button key="cancel" onClick={_close}>
+                    {cancelText || '取消'}
                   </Button>
-                }
+                )}
 
-                {
-                  okVisible !== false &&
-                  <Button
-                    loading={loading}
-                    key='confirm'
-                    type='primary'
-                    htmlType='submit'
-                  >{okText || '确定'}
+                {okVisible !== false && (
+                  <Button loading={loading} key="confirm" type="primary" htmlType="submit">
+                    {okText || '确定'}
                   </Button>
-                }
+                )}
               </FormItem>
             </Form>
           </div>
         </Modal>
-      )
+      );
     }
   }
 
-  ReactDOM.render(
-    React.createElement(Form.create()(ModalForm)),
-    maskDiv
-  )
-}
+  ReactDOM.render(React.createElement(Form.create()(ModalForm)), maskDiv);
+};
 
-export { showModalForm }
+export { showModalForm };

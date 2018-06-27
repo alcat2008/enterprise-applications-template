@@ -1,5 +1,3 @@
-import demoMenu from 'Modules/demo/menu'
+import demoMenu from 'Modules/demo/menu';
 
-export default [
-  demoMenu,
-]
+export default [demoMenu];

@@ -1,13 +1,13 @@
-import React from 'react'
-import { Input, Icon } from 'antd'
-import styles from './index.less'
+import React from 'react';
+import { Input, Icon } from 'antd';
+import styles from './index.less';
 
 const map = {
   UserName: {
     component: Input,
     props: {
       size: 'large',
-      prefix: <Icon type='user' className={styles.prefixIcon} />,
+      prefix: <Icon type="user" className={styles.prefixIcon} />,
       placeholder: 'admin',
     },
     rules: [
@@ -21,7 +21,7 @@ const map = {
     component: Input,
     props: {
       size: 'large',
-      prefix: <Icon type='lock' className={styles.prefixIcon} />,
+      prefix: <Icon type="lock" className={styles.prefixIcon} />,
       type: 'password',
       placeholder: '888888',
     },
@@ -36,7 +36,7 @@ const map = {
     component: Input,
     props: {
       size: 'large',
-      prefix: <Icon type='mobile' className={styles.prefixIcon} />,
+      prefix: <Icon type="mobile" className={styles.prefixIcon} />,
       placeholder: 'mobile number',
     },
     rules: [
@@ -54,7 +54,7 @@ const map = {
     component: Input,
     props: {
       size: 'large',
-      prefix: <Icon type='mail' className={styles.prefixIcon} />,
+      prefix: <Icon type="mail" className={styles.prefixIcon} />,
       placeholder: 'captcha',
     },
     rules: [
@@ -64,6 +64,6 @@ const map = {
       },
     ],
   },
-}
+};
 
-export default map
+export default map;

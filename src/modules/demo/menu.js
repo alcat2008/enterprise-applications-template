@@ -1,4 +1,4 @@
-import * as urls from 'Global/urls'
+import * as urls from 'Global/urls';
 
 export default {
   name: 'demo',
@@ -25,7 +25,7 @@ export default {
           name: 'DEMO_PAGE',
           url: urls.DEMO_PAGE,
         },
-      ]
-    }
-  ]
-}
+      ],
+    },
+  ],
+};

@@ -1,13 +1,13 @@
-import { routerReducer } from '@dx-groups/arthur/routerRedux'
+import { routerReducer } from '@dx-groups/arthur/routerRedux';
 
-const LOCATION_CHANGE = '@@router/LOCATION_CHANGE'
+const LOCATION_CHANGE = '@@router/LOCATION_CHANGE';
 
 export default {
   namespace: 'router',
 
   state: {
     pre: '',
-    location: null
+    location: null,
   },
 
   actions: {},
@@ -20,5 +20,5 @@ export default {
     }),
   },
 
-  children: []
-}
+  children: [],
+};

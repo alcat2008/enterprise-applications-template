@@ -12,7 +12,7 @@
       line-height: @header-height;
       position: relative;
       padding-left: (@menu-collapsed-width - 32px) / 2;
-      transition: all .3s;
+      transition: all 0.3s;
       background: #002140;
       overflow: hidden;
       cursor: pointer;
@@ -32,7 +32,7 @@
         height: @header-height;
         line-height: @header-height;
         padding-left: (@menu-collapsed-width - 32px) / 2;
-        transition: all .3s;
+        transition: all 0.3s;
         overflow: hidden;
         border-bottom: 1px solid #eeeeee;
         font-size: 16px;
@@ -46,7 +46,7 @@
     :global(.ant-menu) {
       border: none;
       //overflow: auto;
-      height: calc(~"100% - @{header-height}");
+      height: calc(~'100% - @{header-height}');
     }
   }
 
@@ -93,4 +93,3 @@
     background: #ffffff;
   }
 }
-

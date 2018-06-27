@@ -1,16 +1,16 @@
-import { message } from 'antd'
-import { createAction } from '@dx-groups/arthur'
-import { replace } from '@dx-groups/arthur/routerRedux'
-import { storage } from '@dx-groups/utils'
-import fetchData from 'Utils/fetch'
-import apis from './apis'
-import * as urls from './urls'
+import { message } from 'antd';
+import { createAction } from '@dx-groups/arthur';
+import { replace } from '@dx-groups/arthur/routerRedux';
+import { storage } from '@dx-groups/utils';
+import fetchData from 'Utils/fetch';
+import apis from './apis';
+import * as urls from './urls';
 
 // ===========================> Action Types <=========================== //
-export const SHOW_SPIN = 'spa/common/SHOW_SPIN'
-export const SHOW_BUTTON_SPIN = 'spa/common/SHOW_BUTTON_SPIN'
-export const SHOW_LIST_SPIN = 'spa/common/SHOW_LIST_SPIN'
-export const SET_USER_INFO = 'spa/common/SET_USER_INFO'
+export const SHOW_SPIN = 'spa/common/SHOW_SPIN';
+export const SHOW_BUTTON_SPIN = 'spa/common/SHOW_BUTTON_SPIN';
+export const SHOW_LIST_SPIN = 'spa/common/SHOW_LIST_SPIN';
+export const SET_USER_INFO = 'spa/common/SET_USER_INFO';
 
 export default {
   namespace: 'common',
@@ -29,29 +29,29 @@ export default {
     showListSpin: createAction(SHOW_LIST_SPIN),
     setUserInfo: createAction(SET_USER_INFO),
 
-    userLogin (arg) {
+    userLogin(arg) {
       return dispatch =>
-        fetchData(dispatch, SHOW_BUTTON_SPIN)(apis.login, arg)
-          .then(res => {
-            dispatch(this.showBtnSpin(false))
-            if (res.code !== 0) {
-              message.error(res.errmsg)
-            } else {
-              storage.set('userInfo', res.data)
-              dispatch(this.setUserInfo(res.data))
-              dispatch(replace(urls.HOME))
-              // location.href = urls.HOME
-            }
-          })
+        fetchData(dispatch, SHOW_BUTTON_SPIN)(apis.login, arg).then(res => {
+          dispatch(this.showBtnSpin(false));
+          if (res.code !== 0) {
+            message.error(res.errmsg);
+          } else {
+            storage.set('userInfo', res.data);
+            dispatch(this.setUserInfo(res.data));
+            dispatch(replace(urls.HOME));
+            // location.href = urls.HOME
+          }
+        });
     },
-    userLogout (arg) {
+    userLogout() {
       return dispatch => {
-        storage.clear()
+        // eslint-disable-line no-unused-vars
+        storage.clear();
         // dispatch(setUserInfo({}))
         // dispatch(replace(urls.LOGIN))
-        location.href = urls.LOGIN
-      }
-    }
+        location.href = urls.LOGIN;
+      };
+    },
   },
 
   reducers: {
@@ -69,13 +69,13 @@ export default {
     }),
 
     [SET_USER_INFO]: (state, { payload }) => {
-      storage.set('userInfo', payload)
+      storage.set('userInfo', payload);
       return {
         ...state,
         userInfo: payload,
-      }
+      };
     },
   },
 
-  children: []
-}
+  children: [],
+};

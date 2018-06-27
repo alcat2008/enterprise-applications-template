@@ -1,9 +1,9 @@
-import React, { PureComponent } from 'react'
-import { Route, Switch, Redirect } from '@dx-groups/arthur/routerDom'
-import * as urls from 'Global/urls'
+import React, { PureComponent } from 'react';
+import { Route, Switch, Redirect } from '@dx-groups/arthur/routerDom';
+import * as urls from 'Global/urls';
 
-import Page from './page'
-import Group from './group'
+import Page from './page';
+import Group from './group';
 
 export default class Demo extends PureComponent {
   render() {
@@ -13,6 +13,6 @@ export default class Demo extends PureComponent {
         <Route exact path={urls.DEMO_PAGE} component={Page} />
         <Route exact path={urls.DEMO_GROUP_REGEXP} component={Group} />
       </Switch>
-    )
+    );
   }
 }
