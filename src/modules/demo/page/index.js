@@ -8,6 +8,16 @@ import styles from './page.less';
   state => state['demo.page']
 )
 export default class Page extends Component {
+  state = {
+    count: 2,
+  }
+
+  static getDerivedStateFromProps(props, state) {
+    return {
+      count: props.count === 2 ? 'TWO' : props.count,
+    }
+  }
+
   _handleAction = (e, _action) => {
     e.preventDefault();
     const { dispatch } = this.props;
@@ -15,7 +25,7 @@ export default class Page extends Component {
   };
 
   render() {
-    const { count } = this.props;
+    const { count } = this.state;
     return (
       <div className={styles.page}>
         <p>{count}</p>

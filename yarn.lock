@@ -932,9 +932,9 @@
     redux-thunk "^2.2.0"
     warning "^3.0.0"
 
-"@dx-groups/athena@^2.1.3":
-  version "2.1.3"
-  resolved "https://registry.npmjs.org/@dx-groups/athena/-/athena-2.1.3.tgz#c5d21b1106cb52e56d5222ced144312235463a26"
+"@dx-groups/athena@^2.1.4":
+  version "2.1.4"
+  resolved "https://registry.npmjs.org/@dx-groups/athena/-/athena-2.1.4.tgz#238ac8c5fef54cf66f6a39e04a6f2629bde7d34b"
   dependencies:
     "@babel/cli" "^7.0.0-beta.49"
     "@babel/core" "^7.0.0-beta.49"

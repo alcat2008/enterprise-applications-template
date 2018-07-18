@@ -41,9 +41,7 @@ module.exports = {
     dll: [
       'antd',
       'axios',
-      'bundle-loader',
       'classnames',
-      'immutable',
       'moment',
       'react',
       'react-dom',
