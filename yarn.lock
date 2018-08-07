@@ -932,9 +932,9 @@
     redux-thunk "^2.2.0"
     warning "^3.0.0"
 
-"@dx-groups/athena@^2.1.4":
-  version "2.1.4"
-  resolved "https://registry.npmjs.org/@dx-groups/athena/-/athena-2.1.4.tgz#238ac8c5fef54cf66f6a39e04a6f2629bde7d34b"
+"@dx-groups/athena@^2.1.6":
+  version "2.1.6"
+  resolved "https://registry.npmjs.org/@dx-groups/athena/-/athena-2.1.6.tgz#7820140569cf98372e7309ca7915acd4586a48e3"
   dependencies:
     "@babel/cli" "^7.0.0-beta.49"
     "@babel/core" "^7.0.0-beta.49"
@@ -965,7 +965,7 @@
     html-webpack-plugin "^3.2.0"
     http-proxy-middleware "^0.17.3"
     jest "20.0.4"
-    less "^2.7.3"
+    less "^3.8.0"
     less-loader "^4.1.0"
     mini-css-extract-plugin "^0.4.0"
     node-notifier "^5.2.1"
@@ -974,7 +974,7 @@
     postcss-flexbugs-fixes "3.3.1"
     postcss-loader "2.1.5"
     preload-webpack-plugin "^3.0.0-alpha.3"
-    prepack-webpack-plugin "^1.1.0"
+    prepack-webpack-plugin "^1.1.1"
     promise "8.0.1"
     react-dev-utils "^5.0.1"
     react-hot-loader "^4.3.0"
@@ -6134,18 +6134,18 @@ less-loader@^4.1.0:
     loader-utils "^1.1.0"
     pify "^3.0.0"
 
-less@^2.7.3:
-  version "2.7.3"
-  resolved "http://registry.npm.taobao.org/less/download/less-2.7.3.tgz#cc1260f51c900a9ec0d91fb6998139e02507b63b"
+less@^3.8.0:
+  version "3.8.0"
+  resolved "http://registry.npm.taobao.org/less/download/less-3.8.0.tgz#44785e40c23841c15ba3be741d36bd2775dd0596"
   optionalDependencies:
     errno "^0.1.1"
     graceful-fs "^4.1.2"
     image-size "~0.5.0"
-    mime "^1.2.11"
+    mime "^1.4.1"
     mkdirp "^0.5.0"
     promise "^7.1.1"
-    request "2.81.0"
-    source-map "^0.5.3"
+    request "^2.83.0"
+    source-map "~0.6.0"
 
 leven@^2.1.0:
   version "2.1.0"
@@ -6655,7 +6655,7 @@ mime@1.4.1:
   version "1.4.1"
   resolved "http://registry.npm.taobao.org/mime/download/mime-1.4.1.tgz#121f9ebc49e3766f311a76e1fa1c8003c4b03aa6"
 
-mime@^1.2.11:
+mime@^1.4.1:
   version "1.6.0"
   resolved "http://registry.npm.taobao.org/mime/download/mime-1.6.0.tgz#32cd9e5c64553bd58d19a568af452acff04981b1"
 
@@ -7926,7 +7926,7 @@ prelude-ls@~1.1.2:
   version "1.1.2"
   resolved "http://registry.npm.taobao.org/prelude-ls/download/prelude-ls-1.1.2.tgz#21932a549f5e52ffd9a827f570e04be62a97da54"
 
-prepack-webpack-plugin@^1.1.0:
+prepack-webpack-plugin@^1.1.1:
   version "1.1.1"
   resolved "http://registry.npm.taobao.org/prepack-webpack-plugin/download/prepack-webpack-plugin-1.1.1.tgz#12c44e92e6f3f310cbf233096e4e179749f16b0f"
   dependencies:
@@ -8560,7 +8560,7 @@ react-dev-utils@^5.0.1:
     strip-ansi "3.0.1"
     text-table "0.2.0"
 
-react-dom@^16.2.0, react-dom@^16.4.1:
+react-dom@16.4.1, react-dom@^16.2.0:
   version "16.4.1"
   resolved "http://registry.npm.taobao.org/react-dom/download/react-dom-16.4.1.tgz#7f8b0223b3a5fbe205116c56deb85de32685dad6"
   dependencies:
@@ -8655,7 +8655,7 @@ react-slick@~0.23.1:
     lodash.debounce "^4.0.8"
     resize-observer-polyfill "^1.5.0"
 
-react@^16.2.0, react@^16.4.1:
+react@16.4.1, react@^16.2.0:
   version "16.4.1"
   resolved "http://registry.npm.taobao.org/react/download/react-16.4.1.tgz#de51ba5764b5dbcd1f9079037b862bd26b82fe32"
   dependencies:
@@ -9067,7 +9067,7 @@ request@2.81.0:
     tunnel-agent "^0.6.0"
     uuid "^3.0.0"
 
-request@^2.79.0:
+request@^2.79.0, request@^2.83.0:
   version "2.87.0"
   resolved "http://registry.npm.taobao.org/request/download/request-2.87.0.tgz#32f00235cd08d482b4d0d68db93a829c0ed5756e"
   dependencies:
@@ -9605,7 +9605,7 @@ source-map@^0.4.4:
   dependencies:
     amdefine ">=0.0.4"
 
-source-map@^0.6.1, source-map@~0.6.1:
+source-map@^0.6.1, source-map@~0.6.0, source-map@~0.6.1:
   version "0.6.1"
   resolved "http://registry.npm.taobao.org/source-map/download/source-map-0.6.1.tgz#74722af32e9614e9c287a8d0bbde48b5e2f1a263"
 

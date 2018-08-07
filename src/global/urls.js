@@ -1,5 +1,6 @@
 export const HOME = '/';
 export const LOGIN = `${HOME}login`;
+export const NOT_FOUND = `${HOME}404`;
 
 // arthur demo
 export const DEMO = `${HOME}demo`;

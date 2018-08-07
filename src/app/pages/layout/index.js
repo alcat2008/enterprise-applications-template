@@ -2,9 +2,11 @@ import React, { Component, createElement } from 'react';
 import PropTypes from 'prop-types';
 import { bindActionCreators } from '@dx-groups/arthur/redux';
 import { connect } from '@dx-groups/arthur';
-import { Route } from '@dx-groups/arthur/router';
+import { Route, Redirect } from '@dx-groups/arthur/router';
 import { push, goBack } from '@dx-groups/arthur/routerRedux';
 import { Layout, Icon, Spin, Dropdown, Menu } from 'antd';
+import Loadable from 'react-loadable';
+import * as urls from 'Global/urls';
 
 import Module from 'Global/module';
 import { arr2obj } from 'Utils/array';
@@ -12,6 +14,7 @@ import { arr2obj } from 'Utils/array';
 import Ellipsis from 'Components/Ellipsis';
 import Breadcrumb from './Breadcrumb';
 import Sider from './Sider';
+import Authorized from '../../Authorized';
 import styles from './index.less';
 
 const { Content, Header } = Layout;
@@ -19,12 +22,10 @@ const { Content, Header } = Layout;
 class MainLayout extends Component {
   static propTypes = {
     routes: PropTypes.arrayOf(PropTypes.object),
-    route: PropTypes.object,
   };
 
   static defaultProps = {
     routes: [],
-    route: {},
   };
 
   constructor(props) {
@@ -55,7 +56,7 @@ class MainLayout extends Component {
   };
 
   render() {
-    const { children, showSpin, routeActions, userInfo, route } = this.props;
+    const { showSpin, routeActions, userInfo, routes } = this.props;
     const { routesObject } = this.state;
 
     return (
@@ -94,14 +95,35 @@ class MainLayout extends Component {
           </Header>
 
           <Route
-            render={props => <Breadcrumb {...props} route={route} routesObject={routesObject} />}
+            render={props => <Breadcrumb {...props} routesObject={routesObject} />}
           />
 
           <Content className={styles.content}>
-            {createElement(children, {
-              routeActions,
-              userInfo,
-            })}
+            {routes.map(_route => (
+              <Authorized
+                key={_route.path}
+                noMatch={<Route render={() => <Redirect to={{ pathname: urls.LOGIN }} />} />}
+              >
+                <Route
+                  exact
+                  path={_route.path}
+                  render={props => createElement(
+                    (
+                      _route.component ||
+                      Loadable({
+                        loader: _route.loader,
+                        loading() {
+                          return <div>Loading...</div>;
+                        },
+                      })
+                    ), {
+                      routeActions,
+                      userInfo,
+                    }
+                  )}
+                />
+              </Authorized>
+            ))}
           </Content>
         </Layout>
         {showSpin && showSpin.bool ? (

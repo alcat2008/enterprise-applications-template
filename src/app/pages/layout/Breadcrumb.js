@@ -3,7 +3,8 @@ import { Link } from '@dx-groups/arthur/routerDom';
 import { Icon, Breadcrumb } from 'antd';
 import styles from './index.less';
 
-export default function BreadcrumbLayout({ route, routesObject, match }) {
+export default function BreadcrumbLayout({ routesObject, match }) {
+  const route = routesObject[match.path];
   if (route.hideBreadcrumb) return null;
 
   const finalRoutes = [route];
