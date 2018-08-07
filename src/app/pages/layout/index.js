@@ -94,9 +94,7 @@ class MainLayout extends Component {
             </div>
           </Header>
 
-          <Route
-            render={props => <Breadcrumb {...props} routesObject={routesObject} />}
-          />
+
 
           <Content className={styles.content}>
             {routes.map(_route => (
@@ -107,19 +105,24 @@ class MainLayout extends Component {
                 <Route
                   exact
                   path={_route.path}
-                  render={props => createElement(
-                    (
-                      _route.component ||
-                      Loadable({
-                        loader: _route.loader,
-                        loading() {
-                          return <div>Loading...</div>;
-                        },
-                      })
-                    ), {
-                      routeActions,
-                      userInfo,
-                    }
+                  render={props => (
+                    <div>
+                      <Breadcrumb match={props.match} routesObject={routesObject} />
+                      {createElement(
+                        (
+                          _route.component ||
+                          Loadable({
+                            loader: _route.loader,
+                            loading() {
+                              return <Spin size="large" className="global-spin" />;
+                            },
+                          })
+                        ), {
+                          routeActions,
+                          userInfo,
+                        }
+                      )}
+                    </div>
                   )}
                 />
               </Authorized>
