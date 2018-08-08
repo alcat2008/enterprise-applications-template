@@ -10,12 +10,12 @@ import styles from './page.less';
 export default class Page extends Component {
   state = {
     count: 2,
-  }
+  };
 
   static getDerivedStateFromProps(props, state) {
     return {
       count: props.count === 2 ? 'TWO' : props.count,
-    }
+    };
   }
 
   _handleAction = (e, _action) => {

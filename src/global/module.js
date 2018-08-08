@@ -16,9 +16,10 @@ export default {
   namespace: 'common',
 
   state: {
-    showSpin: { bool: false, content: '' },
+    showSpin: false,
     showButtonSpin: false,
     showListSpin: false,
+    spinTip: 'loading...',
     auths: {},
     userInfo: {},
   },
@@ -32,7 +33,6 @@ export default {
     userLogin(arg) {
       return dispatch =>
         fetchData(dispatch, SHOW_BUTTON_SPIN)(apis.login, arg).then(res => {
-          dispatch(this.showBtnSpin(false));
           if (res.code !== 0) {
             message.error(res.errmsg);
           } else {
@@ -57,15 +57,18 @@ export default {
   reducers: {
     [SHOW_SPIN]: (state, { payload }) => ({
       ...state,
-      showSpin: payload,
+      showSpin: payload.spin,
+      spinTip: payload.tip,
     }),
     [SHOW_BUTTON_SPIN]: (state, { payload }) => ({
       ...state,
-      showButtonSpin: payload,
+      showButtonSpin: payload.spin,
+      spinTip: payload.tip,
     }),
     [SHOW_LIST_SPIN]: (state, { payload }) => ({
       ...state,
-      showListSpin: payload,
+      showListSpin: payload.spin,
+      spinTip: payload.tip,
     }),
 
     [SET_USER_INFO]: (state, { payload }) => {

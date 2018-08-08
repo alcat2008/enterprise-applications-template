@@ -1,9 +1,11 @@
 import axios from 'axios';
+import MockAdapter from 'axios-mock-adapter';
 import { message } from 'antd';
 import storage from '@dx-groups/utils/storage';
 import * as urls from 'Global/urls';
 import Module, { SHOW_BUTTON_SPIN, SHOW_LIST_SPIN } from 'Global/module';
 import { baseUrl } from '../config';
+import fakeData from './fake';
 
 let _userTicket = null;
 
@@ -83,17 +85,17 @@ const fetchGenerator = poster => (dispatch, spinType) => {
   // 如果dispatch不为函数，则说明不需要loading效果，直接发送请求
   if (typeof dispatch === 'function') {
     const loadingFn = getLoadingFn(spinType);
-    return (api, arg, mes = '正在加载数据...', errMes = '请求异常') =>
+    return (api, arg, tip = '数据加载中，请稍后...', errMes = '请求异常') =>
       new Promise((resolve, reject) => {
-        dispatch(loadingFn({ bool: true, content: mes }));
+        dispatch(loadingFn({ spin: true, tip }));
         return poster(api, arg)
           .then(res => {
-            dispatch(loadingFn({ bool: false, content: '' }));
+            dispatch(loadingFn({ spin: false, tip }));
             resolve(res);
           })
           .catch(error => {
             console.error('*** fetch error ***', error); // eslint-disable-line no-console
-            dispatch(loadingFn({ bool: false, content: '' }));
+            dispatch(loadingFn({ spin: false, tip }));
             message.error(errMes);
             reject(error);
           });
@@ -117,3 +119,11 @@ const fetchGenerator = poster => (dispatch, spinType) => {
 const defaultFetcher = fetcherCreator(baseUrl);
 
 export default fetchGenerator(defaultFetcher.post);
+
+const mockAdapter = new MockAdapter(defaultFetcher, { delayResponse: 618 })
+
+Object.keys(fakeData).forEach(api => {
+  mockAdapter.onPost(api).reply(config => { // eslint-disable-line
+    return [200, fakeData[api]]
+  })
+})

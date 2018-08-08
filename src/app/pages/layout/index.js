@@ -1,4 +1,4 @@
-import React, { Component, createElement } from 'react';
+import React, { Component, createElement, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { bindActionCreators } from '@dx-groups/arthur/redux';
 import { connect } from '@dx-groups/arthur';
@@ -19,7 +19,22 @@ import styles from './index.less';
 
 const { Content, Header } = Layout;
 
-class MainLayout extends Component {
+@connect(
+  'common',
+  ({ showSpin, spinTip, userInfo }) => ({ showSpin, spinTip, userInfo }),
+  dispatch => ({
+    dispatch,
+    routeActions: bindActionCreators(
+      {
+        push,
+        goBack,
+        // showLogin,
+      },
+      dispatch
+    ),
+  })
+)
+export default class MainLayout extends Component {
   static propTypes = {
     routes: PropTypes.arrayOf(PropTypes.object),
   };
@@ -56,7 +71,7 @@ class MainLayout extends Component {
   };
 
   render() {
-    const { showSpin, routeActions, userInfo, routes } = this.props;
+    const { showSpin, spinTip, routeActions, userInfo, routes } = this.props;
     const { routesObject } = this.state;
 
     return (
@@ -94,8 +109,6 @@ class MainLayout extends Component {
             </div>
           </Header>
 
-
-
           <Content className={styles.content}>
             {routes.map(_route => (
               <Authorized
@@ -106,58 +119,31 @@ class MainLayout extends Component {
                   exact
                   path={_route.path}
                   render={props => (
-                    <div>
+                    <Fragment>
                       <Breadcrumb match={props.match} routesObject={routesObject} />
-                      {createElement(
-                        (
+                      <Spin spinning={showSpin} delay={500} tip={spinTip}>
+                        {createElement(
                           _route.component ||
-                          Loadable({
-                            loader: _route.loader,
-                            loading() {
-                              return <Spin size="large" className="global-spin" />;
-                            },
-                          })
-                        ), {
-                          routeActions,
-                          userInfo,
-                        }
-                      )}
-                    </div>
+                            Loadable({
+                              loader: _route.loader,
+                              loading() {
+                                return <Spin size="large" className="global-spin" />;
+                              },
+                            }),
+                          {
+                            routeActions,
+                            userInfo,
+                          }
+                        )}
+                      </Spin>
+                    </Fragment>
                   )}
                 />
               </Authorized>
             ))}
           </Content>
         </Layout>
-        {showSpin && showSpin.bool ? (
-          <div className={styles.cover}>
-            <Spin tip={showSpin.content} style={{ marginTop: 160 }} />
-          </div>
-        ) : null}
       </Layout>
     );
   }
 }
-
-const mapStateToProps = state => ({
-  showSpin: state.showSpin,
-  userInfo: state.userInfo,
-});
-
-const mapDispatchToProps = dispatch => ({
-  dispatch,
-  routeActions: bindActionCreators(
-    {
-      push,
-      goBack,
-      // showLogin,
-    },
-    dispatch
-  ),
-});
-
-export default connect(
-  'common',
-  mapStateToProps,
-  mapDispatchToProps
-)(MainLayout);

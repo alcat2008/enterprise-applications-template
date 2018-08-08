@@ -10,7 +10,7 @@ const { Tab, UserName, Password, Mobile, Captcha, Submit } = Login;
 
 @connect(
   'common',
-  ({ showButtonSpin }) => ({ showButtonSpin })
+  ({ showButtonSpin }) => ({ loading: showButtonSpin })
 )
 export default class LoginPage extends Component {
   state = {
@@ -35,7 +35,7 @@ export default class LoginPage extends Component {
   };
 
   render() {
-    const { showButtonSpin } = this.props;
+    const { loading } = this.props;
     const { type } = this.state;
     return (
       <div className={styles.main}>
@@ -56,7 +56,7 @@ export default class LoginPage extends Component {
               忘记密码
             </a>
           </div>
-          <Submit loading={showButtonSpin}>登录</Submit>
+          <Submit loading={loading}>登录</Submit>
           <div className={styles.other}>
             <Link className={styles.register} to="/user/register">
               注册账户

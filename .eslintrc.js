@@ -30,6 +30,7 @@ module.exports = {
     'import/prefer-default-export': [0],
     'comma-dangle': [2, 'always-multiline'],
     'func-names': [0],
+    'no-nested-ternary': [0],
     'no-plusplus': [2, { 'allowForLoopAfterthoughts': true }],
     'no-restricted-globals': [0],
     'no-underscore-dangle': [0],
@@ -45,5 +46,9 @@ module.exports = {
     'react/jsx-one-expression-per-line': [0],
     'react/jsx-closing-bracket-location': [2, 'line-aligned'],
     'react/jsx-first-prop-new-line': [2, 'multiline'],
+    'jsx-a11y/no-static-element-interactions': [0],
+    'jsx-a11y/no-noninteractive-element-interactions': [0],
+    'jsx-a11y/click-events-have-key-events': [0],
+    'jsx-a11y/anchor-is-valid': [0],
   }
 }

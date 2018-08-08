@@ -86,10 +86,16 @@
     }
   }
 
-  .breadcrumb {
-    height: @breadcrumb-height;
-    line-height: @breadcrumb-height;
-    padding: 0 24px;
-    background: #ffffff;
+  .content {
+    .breadcrumb {
+      height: @breadcrumb-height;
+      line-height: @breadcrumb-height;
+      padding: 0 24px;
+      background: #ffffff;
+    }
+
+    :global(.ant-spin-container) {
+      min-height: 200px;
+    }
   }
 }

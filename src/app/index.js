@@ -5,18 +5,28 @@ import storage from '@dx-groups/utils/storage';
 import { initUserInfo } from 'Utils/fetch';
 import * as urls from 'Global/urls';
 
+import routerModule from './routerModule'; // eslint-disable-line
 import commonModule from 'Global/module';
 import demoModule from 'Modules/demo/module';
-import routerModule from './routerModule';
+import dashboardModule from 'Modules/dashboard/module';
 
 import Router from './Router';
 import './index.less';
+
+// add logger for redux
+const __PROD__ = process.env.NODE_ENV === 'production';
+let onAction = [];
+if (!__PROD__) {
+  const logger = require('redux-logger'); // eslint-disable-line
+  onAction = [logger.default];
+}
 
 let currentUserInfo = {};
 
 // 1. Initialize
 const app = arthur({
   history: createBrowserHistory(),
+  onAction,
   // extraReducers, // to compatiple with normal redux project
   onStateChange: state => {
     if (state.common.userInfo.ticket !== currentUserInfo.ticket) {
@@ -39,7 +49,12 @@ app.init(() => dispatch => {
 // app.use(createLoading());
 
 // 3. Register global model
-app.modules([routerModule, commonModule, demoModule]);
+app.modules([
+  routerModule,
+  commonModule,
+  demoModule,
+  dashboardModule,
+]);
 
 // 4. Router
 app.router(Router);
@@ -51,7 +66,7 @@ export default app._store; // eslint-disable-line
 
 /*  eslint-disable no-console */
 // Rewrite console.log
-if (process.env.NODE_ENV === 'production') {
+if (__PROD__) {
   (function() {
     if (window.console && console.log) {
       const _log = console.log;

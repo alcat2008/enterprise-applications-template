@@ -17,20 +17,27 @@
     "prettier": "prettier --write \"src/**/*.{js,ts,jsx,less}\""
   },
   "dependencies": {
+    "@antv/data-set": "^0.8.9",
     "@dx-groups/arthur": "^1.1.1",
     "@dx-groups/utils": "^1.0.0",
     "antd": "^3.6.2",
     "axios": "^0.18.0",
+    "axios-mock-adapter": "^1.15.0",
+    "bizcharts": "^3.2.1-beta.2",
+    "bizcharts-plugin-slider": "^2.0.4",
     "classnames": "^2.2.6",
+    "lodash-decorators": "^6.0.0",
     "moment": "2.19.3",
+    "numeral": "^2.0.6",
     "prop-types": "^15.6.2",
     "react": "16.4.1",
     "react-dom": "16.4.1",
+    "react-fittext": "^1.0.0",
     "react-hot-loader": "^4.3.0",
     "react-loadable": "^5.4.0"
   },
   "devDependencies": {
-    "@dx-groups/athena": "^2.1.6",
+    "@dx-groups/athena": "^2.1.7",
     "babel-plugin-import": "^1.8.0",
     "eslint-config-airbnb": "^17.0.0",
     "eslint-config-prettier": "^2.9.0",
@@ -40,6 +47,7 @@
     "husky": "^0.14.3",
     "lint-staged": "^7.2.0",
     "prettier": "1.13.6",
+    "redux-logger": "^3.0.6",
     "stylelint-config-prettier": "^3.3.0",
     "stylelint-config-standard": "^18.2.0"
   },

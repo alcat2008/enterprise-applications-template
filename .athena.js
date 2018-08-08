@@ -20,7 +20,7 @@ module.exports = {
   entry: 'src/app/index.js',
   babel: {
     plugins: [
-      ['import', { libraryName: 'antd', style: 'css' }],
+      ['import', { libraryName: 'antd', style: true }],
       'react-hot-loader/babel'
     ],
   },
