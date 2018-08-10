@@ -69,7 +69,7 @@ export default class SiderLayout extends Component {
     _menus.map(menu => {
       if (isModule) {
         return (
-          <Item key={menu.url}>
+          <Item key={menu.url} className={this._getMenuItemClass(menu.url)}>
             {menu.icon && <Icon type={menu.icon} />}
             <span>{menu.name}</span>
           </Item>

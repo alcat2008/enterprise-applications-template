@@ -35,9 +35,12 @@ module.exports = {
         'react-dom': 'ReactDOM',
         'moment': 'moment',
         'moment/locale/zh-cn': 'moment.locale',
+        // 'bizcharts': 'BizChart',
+        // '@antv/data-set': 'DataSet',
       },
     },
-    vendor: ['immutable'],
+    vendor: ['immutable', 'bizcharts', '@antv/data-set'],
+    // vendor: ['immutable'],
     dll: [
       'antd',
       'axios',

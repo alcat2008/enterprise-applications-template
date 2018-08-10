@@ -3,7 +3,7 @@ import * as urls from 'Global/urls';
 export default [
   {
     name: 'dashboard',
-    path: 'dashboard',
+    path: urls.DASHBOARD,
     loader: () => import('./index'),
     // component: <component>,
     children: [

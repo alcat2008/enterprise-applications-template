@@ -42,6 +42,7 @@ class Router extends Component {
         <ConnectedRouter history={this.props.history}>
           <Switch>
             {/* <Redirect exact from={urls.HOME} to={routes[0].path} /> */}
+            <Redirect exact from={urls.HOME} to={urls.DASHBOARD} />
             <Route key="login" path={urls.LOGIN} component={Login} />
             <Authorized
               key={urls.HOME}
