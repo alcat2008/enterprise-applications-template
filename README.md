@@ -2,6 +2,8 @@
 
 基于 react + redux + react-router + antd 的最佳实践，服务于企业级中后台项目的模板，特别适用于多模块的场景
 
+[Demo](https://front-ender.cn/eat/) 是 [Ant Design Pro](https://preview.pro.ant.design/#/) 的实现，可以打开控制台，对比下代码的切分粒度。
+
 ## 开发工具
 
 开发工具采用 [athena](https://github.com/dx-groups/athena)，是基于 webpack 的应用开发工具，大大提升了开发及运行效率，主要特性如下：
@@ -23,7 +25,7 @@
 
 > 更少的代码，更清晰的结构，更好的性能
 
-同时，结合 athena，构建时，会将同一模块下的代码打包在同一个 js bundle 文件中。
+同时，结合 athena，构建时，会 **将同一模块下的代码打包在同一个 js bundle 文件中**。
 
 相比一个页面一个 bundle 文件的懒加载模式，这种方式与多模块的场景更为契合，能有效降低 http 的损耗。
 
@@ -56,7 +58,7 @@ export default [
 ]
 ```
 
-## 菜单
+## 菜单/导航
 
 菜单同样以模块为单位进行配置，默认在模块根目录的 `menu.js` 中指定。菜单会默认匹配路由，高亮相关的子项
 
@@ -86,5 +88,8 @@ export default {
     }
   ]
 }
-
 ```
+
+## 其它
+
+业务形态是多模块更存，通过约束，将模块的代码相互隔离。配置等内容都放在 `global` 目录下的相关文件中托管，便于开关。
