@@ -5,6 +5,7 @@ import classNames from 'classnames';
 
 import { isEmpty } from '@dx-groups/utils/lang';
 // import storage from '@dx-groups/utils/storage'
+import * as urls from 'Global/urls';
 import menus from 'Global/menus';
 import { arr2obj } from 'Utils/array';
 import logo from 'Assets/images/logo.png';
@@ -104,7 +105,7 @@ export default class SiderLayout extends Component {
     return (
       <div className={styles.sider}>
         <Sider trigger={null} collapsed>
-          <Link className={styles.logo} to="/">
+          <Link className={styles.logo} to={urls.HOME}>
             <img src={logo} alt="logo" />
           </Link>
           <Menu

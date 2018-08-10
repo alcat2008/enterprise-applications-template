@@ -1,4 +1,5 @@
 export const HOME = '/';
+// export const HOME = '/eat/'; // for deploy
 export const LOGIN = `${HOME}login`;
 export const NOT_FOUND = `${HOME}404`;
 

@@ -18,6 +18,7 @@ const webpackCommon = {
 
 module.exports = {
   entry: 'src/app/index.js',
+  // publicPath: '/eat/', // for deploy
   babel: {
     plugins: [
       ['import', { libraryName: 'antd', style: true }],
