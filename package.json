@@ -27,6 +27,7 @@
     "bizcharts-plugin-slider": "^2.0.4",
     "classnames": "^2.2.6",
     "lodash-decorators": "^6.0.0",
+    "mockjs": "^1.0.1-beta3",
     "moment": "2.19.3",
     "numeral": "^2.0.6",
     "prop-types": "^15.6.2",

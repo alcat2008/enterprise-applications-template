@@ -9,5 +9,9 @@ export default {
       name: '分析页',
       url: urls.DASHBOARD_ANALYSIS,
     },
+    {
+      name: '监控页',
+      url: urls.DASHBOARD_MONITOR,
+    },
   ],
 };

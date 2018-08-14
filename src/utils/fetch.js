@@ -81,6 +81,7 @@ const getLoadingFn = spinType => {
 };
 
 // 包装fetch
+/* eslint-disable no-console */
 const fetchGenerator = poster => (dispatch, spinType) => {
   // 如果dispatch不为函数，则说明不需要loading效果，直接发送请求
   if (typeof dispatch === 'function') {
@@ -90,11 +91,20 @@ const fetchGenerator = poster => (dispatch, spinType) => {
         dispatch(loadingFn({ spin: true, tip }));
         return poster(api, arg)
           .then(res => {
+            console.groupCollapsed(`%c Fetch success: ${api}`, 'color: green;');
+            console.log('  request: ', arg);
+            console.log(' response: ', res);
+            console.groupEnd();
+
             dispatch(loadingFn({ spin: false, tip }));
             resolve(res);
           })
           .catch(error => {
-            console.error('*** fetch error ***', error); // eslint-disable-line no-console
+            console.groupCollapsed(`%c Fetch failed: ${api}`, 'color: red;');
+            console.log(' request: ', arg);
+            console.error('   error: ', error);
+            console.groupEnd();
+
             dispatch(loadingFn({ spin: false, tip }));
             message.error(errMes);
             reject(error);
@@ -120,10 +130,10 @@ const defaultFetcher = fetcherCreator(baseUrl);
 
 export default fetchGenerator(defaultFetcher.post);
 
-const mockAdapter = new MockAdapter(defaultFetcher, { delayResponse: 618 })
+const mockAdapter = new MockAdapter(defaultFetcher, { delayResponse: 618 });
 
 Object.keys(fakeData).forEach(api => {
   mockAdapter.onPost(api).reply(config => { // eslint-disable-line
-    return [200, fakeData[api]]
-  })
-})
+    return [200, fakeData[api]];
+  });
+});

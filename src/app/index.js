@@ -49,12 +49,7 @@ app.init(() => dispatch => {
 // app.use(createLoading());
 
 // 3. Register global model
-app.modules([
-  routerModule,
-  commonModule,
-  demoModule,
-  dashboardModule,
-]);
+app.modules([routerModule, commonModule, demoModule, dashboardModule]);
 
 // 4. Router
 app.router(Router);
@@ -88,9 +83,10 @@ if (__PROD__) {
  * @param {Object}  errorObj       错误的详细信息，Anything
  */
 window.onerror = function(errorMessage, scriptURI, lineNumber, columnNumber, errorObj) {
-  console.log('*** errorMessage:', errorMessage);
-  console.log('*** scriptURI:', scriptURI);
-  console.log('*** lineNumber:', lineNumber);
-  console.log('*** columnNumber:', columnNumber);
-  console.log('*** errorObj:', errorObj);
+  console.group(`%c Uncaught error: ${errorMessage}`, 'color: red; font-weight: bold;');
+  console.log('    scriptURI: ', scriptURI);
+  console.log('   lineNumber: ', lineNumber);
+  console.log(' columnNumber: ', columnNumber);
+  console.error(errorObj);
+  console.groupEnd();
 };

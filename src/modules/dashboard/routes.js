@@ -12,6 +12,11 @@ export default [
         path: urls.DASHBOARD_ANALYSIS,
         hideBreadcrumb: true,
       },
+      {
+        name: 'monitor',
+        path: urls.DASHBOARD_MONITOR,
+        hideBreadcrumb: true,
+      },
       // {
       //   name: '',
       //   path: '',

@@ -12,3 +12,4 @@ export const DEMO_GROUP_REGEXP = `${DEMO}/group/:id`;
 // dashboard
 export const DASHBOARD = `${HOME}dashboard`;
 export const DASHBOARD_ANALYSIS = `${DASHBOARD}/analysis`;
+export const DASHBOARD_MONITOR = `${DASHBOARD}/monitor`;
