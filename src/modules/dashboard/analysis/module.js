@@ -50,7 +50,8 @@ export default {
   },
 
   reducers: {
-    [SET_CHART_DATA]: (state, { payload }) => { // eslint-disable-line
+    // eslint-disable-next-line
+    [SET_CHART_DATA]: (state, { payload }) => {
       return {
         ...state,
         ...payload,

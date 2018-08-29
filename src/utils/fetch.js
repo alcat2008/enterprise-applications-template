@@ -133,7 +133,8 @@ export default fetchGenerator(defaultFetcher.post);
 const mockAdapter = new MockAdapter(defaultFetcher, { delayResponse: 618 });
 
 Object.keys(fakeData).forEach(api => {
-  mockAdapter.onPost(api).reply(config => { // eslint-disable-line
+  // eslint-disable-next-line
+  mockAdapter.onPost(api).reply(config => {
     return [200, fakeData[api]];
   });
 });

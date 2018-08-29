@@ -30,7 +30,8 @@ export default {
   },
 
   reducers: {
-    [SET_TAGS_DATA]: (state, { payload }) => { // eslint-disable-line
+    // eslint-disable-next-line
+    [SET_TAGS_DATA]: (state, { payload }) => {
       return {
         ...state,
         tags: payload.list,
